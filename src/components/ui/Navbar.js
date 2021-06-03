@@ -60,7 +60,11 @@ export const Navbar = () => {
             <span className="nav-item nav-link text-info mb-0 ">
               {user.name || "Error al obtener nombre de usuario"}
             </span>
-            <button className="nav-link btn" onClick={handleLogout}>
+            <button
+              id="logoutBtn"
+              className="nav-link btn"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </div>
