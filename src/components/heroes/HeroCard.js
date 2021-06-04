@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { heroImages } from "../../helpers/heroImages";
+import test from "../../helpers/test";
 
 export const HeroCard = ({
   id,
@@ -9,12 +11,13 @@ export const HeroCard = ({
   first_appearance,
   characters,
 }) => {
+  test();
   return (
     <div className="card text-dark bg-light mb-3" style={{ maxWidth: 540 }}>
       <div className="row g-0">
         <div className="col-md-4 m-auto">
           <img
-            src={`./assets/heroes/${id}.jpg`}
+            src={heroImages(`./${id}.jpg`).default}
             className="card-img"
             alt={superhero}
           />

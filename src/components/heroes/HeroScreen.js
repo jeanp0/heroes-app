@@ -1,11 +1,15 @@
 import React, { useMemo } from "react";
 import { Redirect, useParams } from "react-router";
+import { heroImages } from "../../helpers/heroImages";
+import test from "../../helpers/test";
 import { getHeroById } from "../../selectors/getHeroById";
+// import batman from "../../assets/heroes/dc-batman.jpg"; // estático
 
 export const HeroScreen = ({ history }) => {
   const { heroId } = useParams();
   const hero = useMemo(() => getHeroById(heroId), [heroId]);
 
+  test();
   // ! Valida que haya encontrado un héroe
   if (!hero) return <Redirect to="/" />;
 
@@ -24,7 +28,9 @@ export const HeroScreen = ({ history }) => {
     <div className="row mt-5">
       <div className="col-4">
         <img
-          src={`../assets/heroes/${heroId}.jpg`}
+          // src={`../assets/heroes/${heroId}.jpg`} // desde public/assets
+          // src={batman} // static import
+          src={heroImages(`./${heroId}.jpg`).default}
           className="img-thumbnail animate__animated animate__fadeInLeft"
           alt={superhero}
         />
